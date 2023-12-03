@@ -1,0 +1,125 @@
+// Function to read Excel file using Fetch API
+async function readExcelFile(filePath) {
+    try {
+        const response = await fetch(filePath);
+        const arrayBuffer = await response.arrayBuffer();
+        const data = new Uint8Array(arrayBuffer);
+        const workbook = XLSX.read(data, { type: 'array' });
+        return workbook;
+    } catch (error) {
+        throw error;
+    }
+}
+
+// Function to search for a product in the Excel file.
+document.querySelector('.search-form').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const searchTerm = document.querySelector('.searchbar').value.trim();
+
+    if (searchTerm) {
+        try {
+            const filePath = 'Book.xlsx';
+
+            const workbook = await readExcelFile(filePath);
+            const sheetName = workbook.SheetNames[0];
+            const worksheet = workbook.Sheets[sheetName];
+
+            const productData = XLSX.utils.sheet_to_json(worksheet);
+            console.log('searchTerm:', searchTerm);
+            console.log(productData);
+            const matchingProducts = productData.filter((product) => {
+                const productName = String(product["Product Name"]).toLowerCase();
+                const searchTermLowerCase = searchTerm.toLowerCase();
+                console.log('Product Name:', productName);
+                return productName.includes(searchTermLowerCase);
+            });
+
+
+
+            console.log("Matching Products",matchingProducts )
+
+            // Generate cards for matching products
+            const productContainer = document.querySelector('.product-container');
+            productContainer.innerHTML = ''; // Clear previous results
+
+            matchingProducts.forEach((product) => {
+                const card = createProductCard(product);
+                productContainer.appendChild(card);
+            });
+
+            if (matchingProducts.length === 0) {
+                productContainer.innerHTML = '<p>No matching products found.</p>';
+            }
+        } catch (error) {
+            console.error('Error reading Excel file:', error);
+        }
+    }
+});
+
+
+// Function to create a product card
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.classList.add('product-card');
+
+    // Create elements for displaying product information.
+    const productName = document.createElement('h3');
+    productName.textContent = product['Product Title'];
+
+    const gemPrice = document.createElement('p');
+    gemPrice.textContent = `Gem Price: ₹${product['Gem Price']}`;
+    
+
+    const amazonPrice = document.createElement('p');
+    amazonPrice.textContent = `Amazon Price: ₹${product['Amazon Price']}`;
+    
+    const flipkartPrice = document.createElement('p');
+    flipkartPrice.textContent = `Flipkart Price: ₹${product['Flipkart Price']}`;
+
+    const gemLink = document.createElement('a');
+    gemLink.textContent = 'View on GeM   ';
+    gemLink.href = product['Gem Link'];
+    gemLink.target = '_blank';
+
+    const amazonLink = document.createElement('a');
+    amazonLink.textContent = 'View on Amazon  ';
+    amazonLink.href = product['Amazon Link'];
+    amazonLink.target = '_blank';
+
+    const flipkartLink = document.createElement('a');
+    flipkartLink.textContent = 'View on flipkart';
+    flipkartLink.href = product['Flipkart Link'];
+    flipkartLink.target = '_blank';
+
+    const space1 = document.createElement('br');
+    const space2 = document.createElement('br');
+
+    const image=document.createElement('img');
+    image.src=""+product["Image link"];
+    image.style.width='90%';
+    image.style.height='50%';
+
+
+    // Add elements to the card.
+    card.appendChild(image);
+    card.appendChild(productName);
+    card.appendChild(gemPrice);
+
+    card.appendChild(amazonPrice);
+    card.appendChild(flipkartPrice);
+    card.appendChild(gemLink);
+    card.appendChild(space2);
+    card.appendChild(amazonLink);
+    card.appendChild(space1);
+    card.appendChild(flipkartLink);
+
+    // Apply styles to the card (you can customize this).
+    card.style.border = '1px solid #ccc';
+    card.style.padding = '10px';
+    card.style.margin = '10px';
+    card.style.width='400px';
+    card.style.borderRadius = '5px';
+
+    return card;
+}
+
