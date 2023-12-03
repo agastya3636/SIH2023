@@ -10,9 +10,6 @@
   <!-- FontAwesome -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
-  
-
-
   <!-- google fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,9 +44,6 @@
         
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#footer">Contact</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#pricing">Pricing</a>
             </li>
             <li class="nav-item">
@@ -58,6 +52,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#e-tender-sites">E-Tender Sites</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Sign Up</a>
+          </li>
         </ul>
     </div>
     </nav>
@@ -124,8 +121,94 @@
     <h2 id="price">Price and Details of Searched Product</h2>
     <p>Simple and affordable price plans for your product on different Sites</p>
       <div class="product-container">
-                                      
+        <div class="row ">
+          <div class="col-lg-4 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <img id="card-image-logo" src="images/amazon.png" alt="amazon logo">
+                <!-- <h3>Amazon</h3> -->
+              </div>
+              <div class="card-body">
+                <div class="image-div">
+                  <img id="product-image" src="images/iphone-14-blue.jpg" alt="Image on Amazon">
+                </div>
+                <h2 id="product-name">iPhone 14 Plus (128 GB) - Blue</h2>
+                <h2 id="product-price">₹69,999</h2>
+                <p id="product-color">Color: <span style="color: skyblue"> Blue</span>,
+                  <span style="color: rgb(69, 67, 67)"> Midnight</span>,
+                  <span style="color: rgb(236, 236, 7)"> Yellow</span>,
+                  <span style="color: rgb(226, 38, 38)"> Red</span>
+                  </p>
+                <ul>
+                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
+                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
+                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
+                </ul>
+                <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-block btn-outline-primary" type="button">View on Amazon</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class=" col-lg-4 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <img id="card-image-logo" src="images/gem.png" alt="GeM logo">
+                <!-- <h3>GeM Portal</h3> -->
+              </div>
+              <div class="card-body">
+                <div class="image-div">
+                  <img id="product-image" src="images/iphone-14-red.jpg" alt="Image from GeM">
+                </div>
+                <h2 id="product-name">iPhone 14 Plus (128 GB) - Red</h2>
+                <h2 id="product-price">₹71,999</h2>
+                <p id="product-color">Color: <span style="color: rgb(226, 38, 38)"> Red</span>,
+                  <span style="color: rgb(184, 15, 184)"> Purple</span>,
+                  <span style="color: rgb(229, 229, 158)"> Starlight</span>,
+                  <span style="color: rgb(69, 67, 67)"> Midnight</span></p>
+                <ul>
+                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
+                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
+                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
+                </ul>
+                <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-block btn-outline-primary" type="button">View on Amazon</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class=" col-lg-4 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <img id="card-image-logo" src="images/flipkart.png" alt="flipkart logo">
+                <!-- <h3>Flipkart</h3> -->
+              </div>
+              <div class="card-body">
+                <div class="image-div">
+                  <img id="product-image" src="images/iphone-14-yellow.jpg" alt="Image from Flipkart">
+                </div>
+                <h2 id="product-name">iPhone 14 Plus (128 GB) - Yellow</h2>
+                <h2 id="product-price">₹68,549</h2>
+                <p id="product-color">Color: <span style="color: rgb(236, 236, 7)"> Yellow</span>,
+                  <span style="color: rgb(69, 67, 67)"> Midnight</span>,
+                  <span style="color: rgb(229, 229, 158)"> Starlight</span>,
+                  <span style="color: skyblue"> Blue</span></p>
+                <ul>
+                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
+                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
+                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
+                </ul>
+                <div class="d-grid gap-2">
+                <button class="btn btn-lg btn-block btn-outline-primary" type="button">View on Amazon</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      
   </section>
 
 
@@ -194,23 +277,9 @@
     </section>
 
     <section id="chatbot">
-      <p class="chat-text">Ask Savvy ? ......</p>
+      <p class="chat-text">Ask Savvy ?</p>
       <a href=""><img class="chatbott" src="images/chatbit.jpg" alt="Chatbot"></a>
   </section>
-
-  <!-- Footer -->
-
-  <!-- <footer id="footer">
-
-    <i class="social-icon fa-brands fa-facebook"></i>
-    <i class="social-icon fa-brands fa-twitter"></i>
-    <i class="social-icon fa-brands fa-instagram"></i>
-    <i class="social-icon fa-solid fa-envelope"></i>
-    <p>© 2023 Copyright @Enigma</p>
-
-  </footer> -->
-
-            
           
   <footer id="footer" style="background-image: url('images/footer.jpg');">
     <div class="social">
