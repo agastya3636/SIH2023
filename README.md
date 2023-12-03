@@ -1,6 +1,5 @@
 # LogiX
 
-## SavvyShopper
+## SavvyShopper (Website)
 
-Price Comparison Website
-# SIH2023
+Price Comparison WebApp for comparing price of products listed on Gem Portal with other E-MarketPlace Websites!
