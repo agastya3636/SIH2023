@@ -53,6 +53,13 @@ p{
     font-family: 'Montserrat', sans-serif;
 }
 
+.sign-in{
+    /* margin: 3% 5%; */
+}
+.form-floating{
+    color: black;
+}
+
 /* Download Buttons */
 
 .download-button{
@@ -139,7 +146,13 @@ em{
     padding: 4% 20%;
 }
 
-
+#price{
+    color: black;
+    font-family: 'Montserrat';
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: bold;
+}
 
 /* Price Section */
 #pricing{
@@ -149,51 +162,6 @@ em{
 .pricing-column{
     padding: 3% 2%;
 }
-
-#price{
-    color: black;
-    font-size: 3rem;
-    line-height: 1.5;
-}
-#card-image-logo{
-    height: 20%;
-    width: 50%;
-}
-
-#product-name{
-    color: black;
-    font-family: 'Montserrat';
-    font-size: 1.4rem;
-    line-height: 1;
-    font-weight: bold;
-    margin-top: 7%;
-}
-#product-price{
-    color: rgb(246, 115, 67);
-    font-family: 'Montserrat';
-    font-weight: bold;
-}
-#specs{
-    text-align: justify;
-    margin: 1% 5%;
-    font-size: 0.9rem;
-    color: #696b6b;
-}
-.image-div{
-    height: 130%;
-    overflow: hidden;
-}
-#product-image{
-    height: 90%;
-    width: 70%;
-    align-items: center;
-    overflow: hidden;
-}
-#product-color{
-    margin: 7% 1% 10%;
-    color: black;
-}
-
 
 
 /* Search box */
