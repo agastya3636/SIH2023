@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon2.ico">
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/6cd0737a04.js" crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+  
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <!-- google fonts -->
+  
+  
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <title>Product Detail</title>
+    <link rel="stylesheet" href="css/product_details.css">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+    
+            <a class="navbar-brand" href=" ">SavvyShopper</a>
+        
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+        <div class="navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+            
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#pricing">Pricing</a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#testimonials">Reviews</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#e-tender-sites">E-Tender Sites</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="Accountid" href="/login"> <i id="accountIcon" class= " <%= accounticon %> " > </i> <%= accountname %></a>
+              </li>
+            </ul>
+        </div>
+        </nav>
+
+        <h2 id="heading">Price and Details of Searched Product</h2>
+        <hr>
+    <section id="product">
+
+
+        <div class="product-image">
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active " aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="images/one.jpg" class="d-block w-100" alt="Product Images">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/two.jpg" class="d-block w-100" alt="Product Images">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="images/three.jpg" class="d-block w-100" alt="Product Images">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon changeicon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon changeicon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
+            <div class="product_details">
+                <h2 id="pro-head">Product Details</h2>
+                <hr id="pro-hr">
+
+                <div class="detail-container">
+                    <div class="items detail-tag">Price For :</div>
+                    <div class="items detail-info">1 Piece</div>
+                    <div class="items detail-tag">MRP/Unit:</div>
+                    <div class="items detail-info">₹144,424.00</div>
+                    <div class="items detail-tag">Offer Price/Unit:</div>
+                    <div class="items detail-info">₹12,998.16</div>
+                    <div class="items detail-tag">Availability:</div>
+                    <div class="items detail-info"><i class="fa-solid fa-circle-check correct"></i> 11 In Stock</div>
+                    <div class="items detail-tag">Min. Qty. Per Consignee:</div>
+                    <div class="items detail-info">4</div>
+                    <div class="items detail-tag">Product id:</div>
+                    <div class="items detail-info">5116877-85204777223</div>
+                    <div class="items detail-tag">Country Of Origin:</div>
+                    <div class="items detail-info">India</div>
+                </div>
+            </div>
+
+            <div class="product_details">
+                <h2 id="pro-head">Seller Details</h2>
+                <hr id="pro-hr">
+
+                <div class="detail-container">
+                    <div class="items detail-tag">Sold by:</div>
+                    <div class="items detail-info">Resellers</div>
+                    <div class="items detail-tag">OEM verified Reseller</div>
+                    <div class="items detail-info"><i class="fa-solid fa-circle-check correct"></i> </div>
+                    <div class="items detail-tag">OEM verified catalogue</div>
+                    <div class="items detail-info"><i class="fa-solid fa-circle-check correct"></i> </div>
+                    <div class="items detail-tag">Seller Excellence</div>
+                    <div class="items detail-info"> 
+                        <div class="seller-rating">
+                            4.0 - 4.5 <i class=" star fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product_details">
+                <h2 id="pro-head">Specifications</h2>
+                <hr id="pro-hr">
+
+                <div class="detail-container">
+                    <div class="items detail-tag">Processor Description</div>
+                    <div class="items detail-info">Intel Core i7 1255U</div>
+                    <div class="items detail-tag">Operating System</div>
+                    <div class="items detail-info">Windows 11 Professional</div>
+                    <div class="items detail-tag">RAM Size(GB)</div>
+                    <div class="items detail-info">16</div>
+                    <div class="items detail-tag">SSD Capacity(GB)</div>
+                    <div class="items detail-info">1024</div>
+                    <div class="items detail-tag">Display Size</div>
+                    <div class="items detail-info">15.6 inch</div>
+                    <div class="items detail-tag">Battery Warranty</div>
+                    <div class="items detail-info">3 years</div>
+                    <div class="items detail-tag">On Site OEM Warranty</div>
+                    <div class="items detail-info">4</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="product-desc">
+            <h2 id="productname">hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )</h2>
+            <h3 id="extradesc">(HP 250 G9 i7 1255U 16134 wifi MS Office 15.6")</h3>
+            <h3 id="price">₹ 12,998.16</h3>
+
+            <div class="price-comparison">
+                <h3 id="price-title">Price on different E-MarketPlaces</h3>
+                <div class="price-on-gem least-price">
+                    <h2 id="gem-heading">hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )</h2>
+                    <div class="gem-detail">
+                        <h2 id="gem-price">₹ 12,998 </h2>
+                        <img id="gem-logo" src="images/gem.png" alt="Gem Image">
+                        <button type="button" class="btn btn-outline-danger">Visit GeM</button>
+                    </div>
+                </div>
+                <div class="price-on-gem">
+                    <h2 id="gem-heading">HP OMEN 11th Gen Intel Core i7-11800H 16.1 inches(40.8cm)</h2>
+                    <div class="gem-detail">
+                        <h2 id="gem-price">₹ 47,500 </h2>
+                        <img id="gem-logo" src="images/amazon.png" alt="AmazonImage">
+                        <button type="button" class="btn btn-outline-danger">Visit Amazon</button>
+                    </div>
+                </div>
+                <div class="price-on-gem">
+                    <h2 id="gem-heading">HP 15s Intel Core i7 11th Gen - (8 GB/512 GB SSD/Windows 11 Home) 15S-FQ5202TU </h2>
+                    <div class="gem-detail">
+                        <h2 id="gem-price">₹ 56,998 </h2>
+                        <img id="gem-logo" src="images/flipkart.png" alt="Gem Image">
+                        <button type="button" class="btn btn-outline-danger">Visit Flipkart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pro-graph">
+                <h3 id="graph-heading">Product Price Variation</h3>
+                <img id="graph-pic" src="images/graph.jpg" alt="Graph">
+            </div>
+
+        </div>
+    </section>    
+
+</body>
+</html>

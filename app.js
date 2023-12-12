@@ -35,7 +35,6 @@ app.post("/login", function(req, res){
 
 });
 app.post("/signup", function(req, res){
-
     var newname = req.body.newName;
     var newemailid = req.body.newemail;
     var newpassword = req.body.newpass;
@@ -44,6 +43,12 @@ app.post("/signup", function(req, res){
     accicon = "fa-solid fa-user";
     res.redirect("/");
 
+});
+app.post("/product1", function(req, res){
+    res.render("product_details",{accountname: accname, accounticon: accicon})
+});
+app.get("/pricing", function(req, res){
+    res.render("product_details", {accountname: accname, accounticon: accicon});
 });
 
 app.listen(3000, function(){

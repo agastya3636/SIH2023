@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>SavvyShopper</title>
+  <link rel="icon" href="images/favicon2.ico">
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/6cd0737a04.js" crossorigin="anonymous"></script>
+  <!-- FontAwesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <!-- google fonts -->
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+
+  <style>
+    body {
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+  }
+  
+  .card {
+    max-width: 49%;
+    padding: 1%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price {
+    font-size: 20px;
+    font-style: italic;
+    block-size: fit-content;
+  }
+  
+  .imge {
+    height: 100%;
+    block-size: fit-content;
+    display: block;
+    object-fit: contain;
+    border: 1px solid gray;
+  }
+  
+  .dep {
+    block-size: fit-content;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+  }
+  
+  .rating {
+    display: flex;
+    justify-content: space-between;
+    block-size: fit-content;
+    background-color: rgb(116, 221, 116);
+    width: fit-content;
+    border-radius: 5px;
+  }
+  
+  .left {
+    text-align: left;
+  }
+  
+  .pd {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  
+  .cpbtn {
+    margin-top: auto; 
+  }
+  </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+          <div class="row no-gutters ">
+            <div class="col-md-5">
+                <div class="imge">
+                    <img src="https://assets-mkpbg.gem.gov.in/img/othe/3088134/c7/0b/cynix1.jpg.6613bac70b.999x420x420.jpg" class="card-img" alt="Product Image">
+              
+                </div>
+              <div class="card-body price left">
+                <p class="card-text gemprice">Gem Price: $100</p>
+                <p class="card-text amazonprice">Amazon Price: $100</p>
+                <p class="card-text flipkartprice">Flipkart Price: $90</p>
+              </div>
+            </div>
+            <div class="col-md-7 ">
+                <div class="card-body dep">
+                    <h3 class="card-title productname">CYNIX Intel Core i5 10400 8 GB/ 500 GB HDD/ DOS</h3>
+                </div>
+                <div class="card-body dep">
+                  <div class="company pd">
+                      (CYNIX GenX iX3030 TOWER DESKTOP)
+                  </div>
+                    <div class="seller pd">
+                    Sold by: Resellers
+                    </div>
+                    <div class="rating pd"> Rating:3.5-4.6</div>
+                    <div class="quantity pd">Min. quant. per consignee:10</div>
+                    <div class="qavailable pd">Quantity Available:100</div>
+                </div>
+                
+                    <button class="btn btn-primary  btn-lg btn-block btn-primary  ">Compare Details</button>
+                
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="row no-gutters ">
+            <div class="col-md-5">
+                <div class="imge">
+                    <img src="https://assets-mkpbg.gem.gov.in/img/othe/3088134/c7/0b/cynix1.jpg.6613bac70b.999x420x420.jpg" class="card-img" alt="Product Image">
+              
+                </div>
+              <div class="card-body price left">
+                <p class="card-text gemprice">Gem Price: $100</p>
+                <p class="card-text amazonprice">Amazon Price: $100</p>
+                <p class="card-text flipkartprice">Flipkart Price: $90</p>
+              </div>
+            </div>
+            <div class="col-md-7 ">
+                <div class="card-body dep">
+                    <h3 class="card-title productname">CYNIX Intel Core i5 10400 8 GB/ 500 GB HDD/ DOS</h3>
+                </div>
+                <div class="card-body dep">
+                  <div class="company pd">
+                      (CYNIX GenX iX3030 TOWER DESKTOP)
+                  </div>
+                    <div class="seller pd">
+                    Sold by: Resellers
+                    </div>
+                    <div class="rating pd"> Rating:3.5-4.6</div>
+                    <div class="quantity pd">Min. quant. per consignee:10</div>
+                    <div class="qavailable pd">Quantity Available:100</div>
+                </div>
+                
+                    <button class="btn btn-primary  btn-lg btn-block btn-primary">Compare Details</button>
+                
+            </div>
+          </div>
+        </div>
+        
+      </div>
+  </body>
+</html>
