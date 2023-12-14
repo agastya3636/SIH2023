@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>SavvyShopper</title>
+    <link rel="icon" href="images/favicon2.ico" />
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/6cd0737a04.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <title>SavvyShopper</title>
-  <link rel="icon" href="images/favicon2.ico">
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/6cd0737a04.js" crossorigin="anonymous"></script>
-  <!-- FontAwesome -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google fonts -->
 
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-  <!-- google fonts -->
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap -->
 
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  <!-- Bootstrap -->
-
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-
-<body>
-
-  <section id="title" style="background-image: url('images/—Pngtree—futuristic\ shape\ abstract\ background\ chemistry_1250295.jpg');">
-
-    <div class="container-fluid">
-
-    <!-- Nav Bar -->
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href=" ">SavvyShopper</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/#pricing">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#e-tender-sites">E-Tender Sites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="Accountid" href="/login">
+              <i id="accountIcon" class="<%= accounticon %>"> </i> <%=
+              accountname %></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <section
+      id="title"
+      style="
+        background-image: url('images/—Pngtree—futuristic\ shape\ abstract\ background\ chemistry_1250295.jpg');
+      "
+    >
+      <div class="container-fluid">
+        <!-- Nav Bar -->
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark">
 
         <a class="navbar-brand" href=" ">SavvyShopper</a>
     
@@ -47,7 +101,7 @@
                 <a class="nav-link" href="/about">About Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
+              <a class="nav-link" href="/pricing">Pricing</a>
           </li>
             <li class="nav-item">
               <a class="nav-link" href="#testimonials">Reviews</a>
@@ -60,281 +114,477 @@
           </li>
         </ul>
     </div>
-    </nav>
+    </nav> -->
 
-    <!-- Title -->
+        <!-- Title -->
 
-        <div class="row">
+        <div class="row searchbox">
+          <div class="col-lg-7">
+            <!-- style="text-align: right;" -->
+            <form class="d-flex search-form" role="search">
+              <input
+                id="searchbar"
+                class="form-control me-2 searchbar"
+                type="search"
+                placeholder="Enter Product Name"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-light submit"
+                type="submit"
+                href=""
+              >
+                Compare Price
+              </button>
+            </form>
+          </div>
+          <div class="col-lg-10">
+            <!-- <h1>Compare price of items and get it at best price!</h1> -->
+            <h1>Discover deals by comparing price and grab items at best possible rate!</h1>
+          </div>
 
-            <div class="col-lg-5">
-                <h1>Compare price of items and get it at best price!</h1>
-                <button type="button" class="btn btn-dark btn-lg download-button"><i class="fa-brands fa-apple"> </i> Download</button>
-                <button type="button" class="btn btn-lg btn-outline-light download-button"><i class="fa-brands fa-google-play"></i> Download</button>
-            </div>
-
-            <div class="col-lg-7">
-                <!-- style="text-align: right;" -->
-                <form class="d-flex search-form" role="search">
-                  <input id="searchbar" class="form-control me-2 searchbar" type="search" placeholder="Enter Product Name" aria-label="Search">
-                  <button class="btn btn-outline-light submit" type="submit" href=""> Compare Price</button>
-                  <button class="btn  btn-outline-light submit camera" type="image"><i class="fa-solid fa-camera fa-3x"></i></button>
-              </form>
-              
-              
-            </div>
 
         </div>
+      </div>
+    </section>
 
-    </div>
+    <!-- Pricing -->
 
-</section>
-
-
-  <!-- Pricing -->
-
-  <section id="pricing">
-
-    <h2 id="price">Price and Details of Searched Product</h2>
-    <p>Simple and affordable price plans for your product on different Sites</p>
+    <section id="pricing">
+      <h2 id="price">Price and Details of Searched Product</h2>
+      <p>
+        Simple and affordable price plans for your product on different Sites
+      </p>
       <div class="product-container">
-        <div class="row ">
-          <div class="col-lg-4 col-sm-12">
+        <div class="row">
+          <div class="col-lg-6 product-card">
             <div class="card">
-              <div class="card-header">
-                <img id="card-image-logo" src="images/amazon.png" alt="amazon logo">
-                <!-- <h3>Amazon</h3> -->
-              </div>
-              <div class="card-body">
-                <div class="image-div">
-                  <img id="product-image" src="images/iphone-14-blue.jpg" alt="Image on Amazon">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
                 </div>
-                <h2 id="product-name">iPhone 14 Plus (128 GB) - Blue</h2>
-                <h2 id="product-price">₹69,999</h2>
-                <p id="product-color">Color: <span style="color: skyblue"> Blue</span>,
-                  <span style="color: rgb(69, 67, 67)"> Midnight</span>,
-                  <span style="color: rgb(236, 236, 7)"> Yellow</span>,
-                  <span style="color: rgb(226, 38, 38)"> Red</span>
-                  </p>
-                <ul>
-                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
-                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
-                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
-                </ul>
-                <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-block btn-outline-primary" type="button"> <a id="site-links" href="https://www.amazon.in/Apple-iPhone-Plus-128GB-Blue/dp/B0BDK62STN/ref=sr_1_3?keywords=iphone+14+plus&sr=8-3">View on Amazon</a></button>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
                 </div>
               </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
             </div>
           </div>
-        
-          <div class=" col-lg-4 col-sm-12">
+          <div class="col-lg-6 product-card">
             <div class="card">
-              <div class="card-header">
-                <img id="card-image-logo" src="images/gem.png" alt="GeM logo">
-                <!-- <h3>GeM Portal</h3> -->
-              </div>
-              <div class="card-body">
-                <div class="image-div">
-                  <img id="product-image" src="images/iphone-14-red.jpg" alt="Image from GeM">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
                 </div>
-                <h2 id="product-name">iPhone 14 Plus (128 GB) - Red</h2>
-                <h2 id="product-price">₹71,999</h2>
-                <p id="product-color">Color: <span style="color: rgb(226, 38, 38)"> Red</span>,
-                  <span style="color: rgb(184, 15, 184)"> Purple</span>,
-                  <span style="color: rgb(229, 229, 158)"> Starlight</span>,
-                  <span style="color: rgb(69, 67, 67)"> Midnight</span></p>
-                <ul>
-                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
-                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
-                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
-                </ul>
-                <div class="d-grid gap-2">
-                  <button class="btn btn-lg btn-block btn-outline-primary" type="button"> <a id="site-links" href="https://gem.gov.in/">View on GeM</a></button>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
                 </div>
               </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
             </div>
           </div>
-          
-          <div class=" col-lg-4 col-sm-12">
+          <div class="col-lg-6 product-card">
             <div class="card">
-              <div class="card-header">
-                <img id="card-image-logo" src="images/flipkart.png" alt="flipkart logo">
-                <!-- <h3>Flipkart</h3> -->
-              </div>
-              <div class="card-body">
-                <div class="image-div">
-                  <img id="product-image" src="images/iphone-14-yellow.jpg" alt="Image from Flipkart">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
                 </div>
-                <h2 id="product-name">iPhone 14 Plus (128 GB) - Yellow</h2>
-                <h2 id="product-price">₹68,549</h2>
-                <p id="product-color">Color: <span style="color: rgb(236, 236, 7)"> Yellow</span>,
-                  <span style="color: rgb(69, 67, 67)"> Midnight</span>,
-                  <span style="color: rgb(229, 229, 158)"> Starlight</span>,
-                  <span style="color: skyblue"> Blue</span></p>
-                <ul>
-                  <li id="specs">16.95 cm (6.7-inch) Super Retina XDR display</li>
-                  <li id="specs">Dual 12MP camera system (Ultra Wide and Wide)</li>
-                  <li id="specs">A15 Bionic chip with 6-core CPU (2 performance and 4 efficiency cores), 5-core GPU, and 16-core Neural Engine</li>
-                </ul>
-                <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-block btn-outline-primary" type="button"><a id="site-links" href="https://www.flipkart.com/apple-iphone-14-plus-blue-128-gb/p/itmac8385391b02b?pid=MOBGHWFHUYWGB5F2&lid=LSTMOBGHWFHUYWGB5F2XIJVA7&marketplace=FLIPKART&q=iphone+14+plus&store=tyy%2F4io&srno=s_1_1&otracker=search&otracker1=search&fm=organic&iid=a826c704-f094-4ea3-9ebe-104e8202aedb.MOBGHWFHUYWGB5F2.SEARCH&ppt=hp&ppn=homepage&ssid=03duipsac00000001701610679758&qH=70897fd4f67467a5">View on Flipkart</a></button>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
                 </div>
               </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
+            </div>
+          </div>
+          <div class="col-lg-6 product-card">
+            <div class="card">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
+                </div>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
+                </div>
+              </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
+            </div>
+          </div>
+          <div class="col-lg-6 product-card">
+            <div class="card">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
+                </div>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
+                </div>
+              </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
+            </div>
+          </div>
+          <div class="col-lg-6 product-card">
+            <div class="card">
+              <div class="img-price">
+                <div class="img-div">
+                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
+                </div>
+                <div class="pro-price">
+                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">Amazon Price: ₹154,899</div>
+                  <div class="items">Flipkart Price: ₹144,999</div>
+                </div>
+              </div>
+              <div class="card-desc">
+                <h2 id="product-heading">
+                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                </h2>
+                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
+                <div class="seller-type">Sold by: Resellers</div>
+                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
+                <div class="qty-avail">Quantity Available: 108</div>
+                <form action="/product1" method="post">
+                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+              </form>
+              </div>
+            
+              
             </div>
           </div>
         </div>
       </div>
-      
-  </section>
+    </section>
 
-  <hr>
-
+    <hr />
+    <!-- New Product Card -->
 
     <!-- Features -->
 
-    <section id="features"> 
-    
+    <section id="features">
       <div class="row">
-          <div class="feature-box col-lg-4">
-              <i class="fa-solid fa-circle-check fa-4x symbol"></i>
-              <h3>Accurate</h3>
-              <p>we Check the Product Information in real time and provide you with real data.</p>
-          </div>
-          
-          <div class="feature-box col-lg-4">
-              <i class="fa-sharp fa-solid fa-indian-rupee-sign fa-4x symbol"></i>
-              <h3>Best Price</h3>
-              <p>We provide you best price for your product by comparing its price on all sites.</p>
-          </div>
-      
-          <div class="feature-box col-lg-4">
-            <i class="fa-solid fa-bullseye fa-4x symbol"></i>
-              <h3>Easy to use</h3>
-              <p>So easy to use, just enter the Product information and compare its price.</p>
-          </div>
-  
+        <div class="feature-box col-lg-4">
+          <i class="fa-solid fa-circle-check fa-4x symbol"></i>
+          <h3>Accurate</h3>
+          <p>
+            we Check the Product Information in real time and provide you with
+            real data.
+          </p>
+        </div>
+
+        <div class="feature-box col-lg-4">
+          <i class="fa-sharp fa-solid fa-indian-rupee-sign fa-4x symbol"></i>
+          <h3>Best Price</h3>
+          <p>
+            We provide you best price for your product by comparing its price on
+            all sites.
+          </p>
+        </div>
+
+        <div class="feature-box col-lg-4">
+          <i class="fa-solid fa-bullseye fa-4x symbol"></i>
+          <h3>Easy to use</h3>
+          <p>
+            So easy to use, just enter the Product information and compare its
+            price.
+          </p>
+        </div>
       </div>
-  </section>
-  
-  <hr>
-  
+    </section>
+
+    <hr />
+
     <!-- Press -->
 
     <section id="e-tender-sites">
-
       <h2 id="partners">Our E-Commerce Partners :</h2>
       <div class="brands">
-        <a href="https://www.flipkart.com"><img class="press-logo" src="images/flipkart.png" alt="flipkart-logo"></a>
-        <a href="https://www.amazon.in"><img class="press-logo" src="images/amazon.png" alt="amazon-logo"></a>
-        <a href="https://gem.gov.in"><img class="press-logo" src="images/gem.png" alt="gem-portal-logo"></a>
-        <a href="https://www.reliancedigital.in"><img class="press-logo" src="images/reliance.png" alt="reliance-digital-logo"></a>  
+        <a href="https://www.flipkart.com"
+          ><img
+            class="press-logo"
+            src="images/flipkart.png"
+            alt="flipkart-logo"
+        /></a>
+        <a href="https://www.amazon.in"
+          ><img class="press-logo" src="images/amazon.png" alt="amazon-logo"
+        /></a>
+        <a href="https://gem.gov.in"
+          ><img class="press-logo" src="images/gem.png" alt="gem-portal-logo"
+        /></a>
+        <a href="https://www.reliancedigital.in"
+          ><img
+            class="press-logo"
+            src="images/reliance.png"
+            alt="reliance-digital-logo"
+        /></a>
       </div>
-      
     </section>
 
+    <!-- Testimonials -->
 
-  <!-- Testimonials -->
-
-  <section id="testimonials" style="background-image: url('images/bgm.jpg');">
-
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="3500">
-          <h2 class="testimonial-text">I purchase products which i needed at lowest price possible through this Website! <br>Thanks SavvyShopper</h2>
-          <img class="testimonial-image" src="images/anyway.png" alt="Anyway-img">
-          <em>Anyway, New Delhi</em>
+    <section id="testimonials" style="background-image: url('images/marketplace.jpg')">
+      <!-- <section id="testimonials"> -->
+      <div
+        id="carouselExampleInterval"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item testimonial-div active" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              I purchase products which i needed at lowest price possible
+              through this Website! <br />Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/anyway.png"
+              alt="Anyway-img"
+            />
+            <em>Anyway, New Delhi</em>
+          </div>
+          <div class="carousel-item testimonial-div" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              Got the product with more add-ons offered by different e-commerce
+              Sites through comparing them here! <br />Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/agastya.png"
+              alt="Agastya-img"
+            />
+            <em>Agastya, Banglore</em>
+          </div>
+          <div class="carousel-item testimonial-div" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              This site Provides me with the best comparison of products of my
+              need! <br />
+              Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/ankur.png"
+              alt="Ankur-img"
+            />
+            <em>Ankur, Rae-Bareli</em>
+          </div>
+          <div class="carousel-item testimonial-div" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              Got the best deals on product i needed to buy and with so much
+              add-ons! <br />Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/ishika .png"
+              alt="Ishika-img"
+            />
+            <em>Ishika, Jais</em>
+          </div>
+          <div class="carousel-item testimonial-div" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              Used this site for buying goods and got it so much user friendly
+              and best visual ever! <br />Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/raksha.png"
+              alt="Raksha-img"
+            />
+            <em>Raksha, Banglore</em>
+          </div>
+          <div class="carousel-item testimonial-div" data-bs-interval="3500">
+            <h2 class="testimonial-text">
+              You can buy whatever needed through comparing their prices here
+              and get the best deal! <br />Thanks SavvyShopper
+            </h2>
+            <img
+              class="testimonial-image"
+              src="images/rishabh.png"
+              alt="Rishabh-img"
+            />
+            <em>Rishabh, New Delhi</em>
+          </div>
         </div>
-        <div class="carousel-item" data-bs-interval="3500">
-          <h2 class="testimonial-text">Got the product with more add-ons offered by different e-commerce Sites through comparing them here! <br>Thanks SavvyShopper </h2>
-          <img class="testimonial-image" src="images/agastya.png" alt="Agastya-img">
-          <em>Agastya, Banglore</em>
-        </div>
-        <div class="carousel-item" data-bs-interval="3500">
-          <h2 class="testimonial-text">This site Provides me with the best comparison of products of my need! <br> Thanks SavvyShopper</h2>
-          <img class="testimonial-image" src="images/ankur.png" alt="Ankur-img">
-          <em>Ankur, Rae-Bareli</em>
-        </div>
-        <div class="carousel-item" data-bs-interval="3500">
-          <h2 class="testimonial-text">Got the best deals on product i needed to buy and with so much add-ons! <br>Thanks SavvyShopper </h2>
-          <img class="testimonial-image" src="images/ishika .png" alt="Ishika-img">
-          <em>Ishika, Jais</em>
-        </div>
-        <div class="carousel-item" data-bs-interval="3500">
-          <h2 class="testimonial-text">Used this site for buying goods and got it so much user friendly and best visual ever! <br>Thanks SavvyShopper </h2>
-          <img class="testimonial-image" src="images/raksha.png" alt="Raksha-img">
-          <em>Raksha, Banglore</em>
-        </div>
-        <div class="carousel-item" data-bs-interval="3500">
-          <h2 class="testimonial-text">You can buy whatever needed through comparing their prices here and get the best deal! <br>Thanks SavvyShopper </h2>
-          <img class="testimonial-image" src="images/rishabh.png" alt="Rishabh-img">
-          <em>Rishabh, New Delhi</em>
-        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
 
-
-    
-    <div class="social">
-      <div class="contact">Contact Us:</div>
-      <div class="linkedin">
-          <img class="social-img" src="Images/linkedin.png" alt="">
-          <a class="footer-link" href="https://www.linkedin.com/in/ayush-tripathi-b17250257">LinkedIn</a>
-      </div>
-      <div class="github">
-          <img class="social-img" src="Images/githubb.png" alt="">
+      <!-- <div class="social">
+        <div class="contact">Contact Us:</div>
+        <div class="linkedin">
+          <img class="social-img" src="Images/linkedin.png" alt="" />
+          <a
+            class="footer-link"
+            href="https://www.linkedin.com/in/ayush-tripathi-b17250257"
+            >LinkedIn</a
+          >
+        </div>
+        <div class="github">
+          <img class="social-img" src="Images/githubb.png" alt="" />
           <a class="footer-link" href="https://github.com/anywaay">Github</a>
-      </div>
-      <div class="insta">
-          <img class="social-img" src="Images/insta.png" alt="">
-          <a class="footer-link" href="https://instagram.com/a.nywaay?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D">Instagram</a>
-      </div>
-  </div>
-
-  <div class="copyright">
-    <p>© 2023 Copyright @SavvyShopper <br> Proudly Made in India <i class=" heart fa-solid fa-heart"></i></p>
-  </div>
-  </section>
-  
-
-
-
-    <section id="chatbot">
-      <p class="chat-text">Ask Savvy ?</p>
-      <a href=""><img class="chatbott" src="images/chatbit.jpg" alt="Chatbot"></a>
-  </section>
-          
-    <!-- <footer id="footer" style="background-image: url('images/footer.jpg');">
-      <div class="social">
-          <div class="contact">Contact Us:</div>
-          <div class="linkedin">
-              <img class="social-img" src="Images/linkedin.png" alt="">
-              <a class="footer-link" href="https://www.linkedin.com/in/ayush-tripathi-b17250257">LinkedIn</a>
-          </div>
-          <div class="github">
-              <img class="social-img" src="Images/githubb.png" alt="">
-              <a class="footer-link" href="https://github.com/anywaay">Github</a>
-          </div>
-          <div class="insta">
-              <img class="social-img" src="Images/insta.png" alt="">
-              <a class="footer-link" href="https://instagram.com/a.nywaay?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D">Instagram</a>
-          </div>
+        </div>
+        <div class="insta">
+          <img class="social-img" src="Images/insta.png" alt="" />
+          <a
+            class="footer-link"
+            href="https://instagram.com/a.nywaay?utm_source=qr&igshid=ZDc4ODBmNjlmNQ%3D%3D"
+            >Instagram</a
+          >
+        </div>
       </div>
 
       <div class="copyright">
-        <p>© 2023 Copyright @SavvyShopper <br> Proudly Made in India <i class=" heart fa-solid fa-heart"></i></p>
+        <p>
+          © 2023 Copyright @SavvyShopper <br />
+          Proudly Made in India <i class="heart fa-solid fa-heart"></i>
+        </p>
+      </div> -->
+  </section>
+
+    <section id="chatbot">
+      <p class="chat-text">Ask Savvy ?</p>
+      <a href=""
+        ><img class="chatbott" src="images/chatbit.jpg" alt="Chatbot"
+      /></a>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-5">
+                  <h5>&copy; 2023 ShavvyShopper, Inc. All rights reserved.</h5>
+                  <div class="row">
+                      <div class="col-4">
+                          <ul class="list-unstyled">
+                              <li><a href="/">Home</a></li>
+                              <li><a href="/#testimonials">Reviews</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-4">
+                          <ul class="list-unstyled">
+                              <li><a href="/aboutus">About Us</a></li>
+                              <li><a href="/#pricing">Pricing</a></li>
+                          </ul>
+                      </div>
+                      <div class="col-4">
+                        <ul class="list-unstyled">
+                            <li><a href="/#e-tender-sites">E-Tender Sites</a></li>
+                        </ul>
+                    </div>
+                  </div>
+                  <br>
+              </div>
+
+              <div class="col-md-5">
+                <h5 class="text-md-right">Contact Us</h5>
+                  <form>
+                    <p>Message Your query at our mail below and directly contact us at <a href="mailto:shavvyshopper@gmail.com">Shavvyshopper@gmail.com</a>.</p>
+                  </form>
+              </div>
+              <ul class="nav social-icon border-bottom">
+                <li class="nav-item"><a href="" class="nav-link pl-0"><i class="fa fa-brands fa-linkedin"></i></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-twitter fa-lg"></i></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-github fa-lg"></i></a></li>
+                <li class="nav-item"><a href="" class="nav-link"><i class="fa fa-instagram fa-lg"></i></a></li>
+            </ul>
+          </div>
       </div>
-    </footer> -->
+  </footer>
 
-  <script src="script.js" >
-  </script>
-</body>
-
+    <!-- <script src="script.js"></script> -->
+  </body>
 </html>
