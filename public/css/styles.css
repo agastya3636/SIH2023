@@ -34,14 +34,25 @@ body{
     
 }
 
+.searchbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.col-lg-7{
+    margin-bottom: 8%;
+}
+
 #title{
     color: white ;
     background-size: 100% 100%;
 }
 h1{
     font-family: 'Montserrat', sans-serif;
-    font-size: 3rem;
+    font-size: 2.9rem;
     line-height: 1.5;
+    text-align: center;
 }
 h3{
     font-family: 'Montserrat-bold', sans-serif;
@@ -140,6 +151,8 @@ hr{
     padding-bottom: 2%;
     background-size: 100% 100%;
     background-color: rgba(50, 20, 239, 0.553);
+    overflow: hidden;
+    height: 20%;
 }
 .brands{
     padding: 5% 2% 8%;
@@ -156,6 +169,9 @@ h2{
     width: 10%;
     border-radius: 200%;
     margin: 10px 0px 5px;
+}
+.testimonial-div{
+    min-height: 480px;
 }
 em{
     color: white;
@@ -378,7 +394,6 @@ em{
 }
 
 
-
 /* Card Products */
 .row{
     justify-content: space-between;
@@ -389,10 +404,19 @@ em{
 }
 .img-price{
     width: 40%;
+    min-height: 350px;
+    max-height: 350px;
 }
-
+.img-div{
+    height: 50%;
+    overflow: hidden;
+    width: 100%;
+}
 #card-image{
-    scale: 1.3;
+    /* overflow: hidden; */
+    /* justify-content: center; */
+    scale: 1.2;
+    translate: 0px -25px;
 }
 .card{
     display: flex;
@@ -418,27 +442,28 @@ em{
     margin: auto 2%;
 }
 .pro-price{
-    margin: 4% 4%;
-    padding-top: 3%;
+    margin: 14% 4% 0% 4%;
+    padding-top:2%;
+    border: 2px solid rgba(76, 179, 39, 0.171);
+    border-radius: 5px;
+    background-color: rgba(111, 227, 121, 0.194);
 }
 .items{
     /* margin: 1% auto 1% 5%; */
-    margin: 2% auto 1% 5%;
+    margin: 2% 3% 1% 3%;
     text-align: left;
     font-size: 1rem;
-    color: #353636;
+    /* color: #353636; */
+    color: rgb(13, 77, 13);
     /* border: 2px solid rgba(247, 216, 216, 0.521); */
     /* background-color: rgba(247, 216, 216, 0.521); */
     border-radius: 6px;
     padding: 1% 2%;
 }
 .items:hover{
-    background-color: #dcdada;
+    background-color: rgba(49, 216, 16, 0.228);
 }
-.img-price{
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
+
 .seller-type{
     margin: 5% auto auto 2%;
     text-align: left;
@@ -472,7 +497,7 @@ em{
     margin: 8% auto 0% 45%;
     font-weight: bold;
     border: 2px solid rgba(0, 44, 62, 0.932);
-    min-width: 30%;
+    /* min-width: 30%; */
     color: rgba(0, 44, 62, 0.932);
 }
 #pro-butt:hover{

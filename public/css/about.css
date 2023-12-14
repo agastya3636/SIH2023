@@ -240,7 +240,9 @@
   /* footer */
   /* Footer */
 
-
+  .row{
+    justify-content: space-between;
+}
 .footer {
     bottom: 0;
     width: 100%;
