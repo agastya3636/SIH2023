@@ -21,143 +21,84 @@
   <!-- Bootstrap -->
 
   <style>
+    @import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 300px;
+}
+
+/* Taller footer on small screens */
+@media (max-width: 567em) {
     body {
-    text-align: center;
-  }
-  
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1%;
-  }
-  
-  .card {
-    max-width: 49%;
-    padding: 1%;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .price {
-    font-size: 20px;
-    font-style: italic;
-    block-size: fit-content;
-  }
-  
-  .imge {
-    height: 100%;
-    block-size: fit-content;
-    display: block;
-    object-fit: contain;
-    border: 1px solid gray;
-  }
-  
-  .dep {
-    block-size: fit-content;
-    text-align: left;
-    padding: 10px;
-  }
-  
-  h3 {
-    font-size: 1.4rem;
-  }
-  
-  .rating {
-    display: flex;
-    justify-content: space-between;
-    block-size: fit-content;
-    background-color: rgb(116, 221, 116);
-    width: fit-content;
-    border-radius: 5px;
-  }
-  
-  .left {
-    text-align: left;
-  }
-  
-  .pd {
-    padding-top: 5px;
-    padding-bottom: 5px;
-  }
-  
-  
-  .cpbtn {
-    margin-top: auto; 
-  }
+      margin-bottom: 10%;
+    }
+    .footer {
+      height: 35%;
+    }
+}
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+footer {
+  padding-top: 30px;
+  background-color: #292c2f;
+  color: #bbb;
+}
+
+footer a {
+  color: #999;
+  text-decoration:none;
+}
+
+footer a:hover, footer a:focus {
+  color: #aaa;
+  text-decoration:none;
+  border-bottom:1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
   </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="card">
-          <div class="row no-gutters ">
-            <div class="col-md-5">
-                <div class="imge">
-                    <img src="https://assets-mkpbg.gem.gov.in/img/othe/3088134/c7/0b/cynix1.jpg.6613bac70b.999x420x420.jpg" class="card-img" alt="Product Image">
-              
-                </div>
-              <div class="card-body price left">
-                <p class="card-text gemprice">Gem Price: $100</p>
-                <p class="card-text amazonprice">Amazon Price: $100</p>
-                <p class="card-text flipkartprice">Flipkart Price: $90</p>
-              </div>
-            </div>
-            <div class="col-md-7 ">
-                <div class="card-body dep">
-                    <h3 class="card-title productname">CYNIX Intel Core i5 10400 8 GB/ 500 GB HDD/ DOS</h3>
-                </div>
-                <div class="card-body dep">
-                  <div class="company pd">
-                      (CYNIX GenX iX3030 TOWER DESKTOP)
-                  </div>
-                    <div class="seller pd">
-                    Sold by: Resellers
-                    </div>
-                    <div class="rating pd"> Rating:3.5-4.6</div>
-                    <div class="quantity pd">Min. quant. per consignee:10</div>
-                    <div class="qavailable pd">Quantity Available:100</div>
-                </div>
-                
-                    <button class="btn btn-primary  btn-lg btn-block btn-primary  ">Compare Details</button>
-                
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="row no-gutters ">
-            <div class="col-md-5">
-                <div class="imge">
-                    <img src="https://assets-mkpbg.gem.gov.in/img/othe/3088134/c7/0b/cynix1.jpg.6613bac70b.999x420x420.jpg" class="card-img" alt="Product Image">
-              
-                </div>
-              <div class="card-body price left">
-                <p class="card-text gemprice">Gem Price: $100</p>
-                <p class="card-text amazonprice">Amazon Price: $100</p>
-                <p class="card-text flipkartprice">Flipkart Price: $90</p>
-              </div>
-            </div>
-            <div class="col-md-7 ">
-                <div class="card-body dep">
-                    <h3 class="card-title productname">CYNIX Intel Core i5 10400 8 GB/ 500 GB HDD/ DOS</h3>
-                </div>
-                <div class="card-body dep">
-                  <div class="company pd">
-                      (CYNIX GenX iX3030 TOWER DESKTOP)
-                  </div>
-                    <div class="seller pd">
-                    Sold by: Resellers
-                    </div>
-                    <div class="rating pd"> Rating:3.5-4.6</div>
-                    <div class="quantity pd">Min. quant. per consignee:10</div>
-                    <div class="qavailable pd">Quantity Available:100</div>
-                </div>
-                
-                    <button class="btn btn-primary  btn-lg btn-block btn-primary">Compare Details</button>
-                
-            </div>
-          </div>
-        </div>
-        
-      </div>
-  </body>
+  <table class="table  table-light table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Websites</th>
+        <th scope="col">Amazon</th>
+        <th scope="col">GeM</th>
+        <th scope="col">Flipkart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Price</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
 </html>

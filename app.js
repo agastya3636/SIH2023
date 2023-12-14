@@ -20,7 +20,7 @@ app.get("/signup", function(req, res){
     res.render("signup");
 });
 app.get("/about", function(req, res){
-    res.sendFile(__dirname + "/about.html");
+    res.render("about",{accountname: accname, accounticon: accicon});
 });
 
 app.post("/login", function(req, res){
