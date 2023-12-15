@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-import json
+import json,jsonify
 from flask import Flask, request
 app = Flask(__name__)
 
@@ -237,7 +237,7 @@ def gem_scraper(url):
                 
             extract_images(div,featuredictionary)
         extract_features(soup,featuredictionary)
-        json_data = json.dumps(featuredictionary)
+        json_data = json.dumps(featuredictionary,indent=2)
         return(json_data)
     else:
         print("Failed to fetch the webpage")
@@ -259,7 +259,7 @@ def amazon_scraper(url):
         for i in dep:
             d[i.find('th').text.strip()]=i.find('td').text.strip().replace('\n',' ')
         #print(d)
-        json_data = json.dumps(d)
+        json_data = json.dumps(d,indent=2)
         return json_data
         
     else:
@@ -284,7 +284,7 @@ def flipkart_scraper(url):
             #print(i)
             d[i.find_all('td')[0].text.strip()]=i.find_all('td')[1].text.strip().replace('\n',' ')
         #print(d)
-        json_data = json.dumps(d)
+        json_data = json.dumps(d,indent=2)
         return json_data
         
     else:
@@ -295,16 +295,16 @@ def run_script():
     url1 = request.form['value1']
     url2 = request.form['value2']
     url3 = request.form['value3']
-    
+    data={}
     if url1:
-        json_data1 = gem_scraper(url1)
+        data["GEM"] = json.loads(gem_scraper(url1))
     if url2:
-        json_data2 = amazon_scraper(url2)
+        data["AMAZON"] = json.loads(amazon_scraper(url2))
     if url3:
-        json_data3 = flipkart_scraper(url3)
-    json_data={"GEM":json_data1,"AMAZON":json_data2,"FLIPKART":json_data3}
-    if json_data:
-        return f"Received value: {json_data}"
+        data["FLIPKART"] = json.loads(flipkart_scraper(url3))
+
+    if data:
+        return json.dumps(data,indent=2)
     
     return "No JSON data available."
 
