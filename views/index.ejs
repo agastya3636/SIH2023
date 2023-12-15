@@ -121,13 +121,14 @@
         <div class="row searchbox">
           <div class="col-lg-7">
             <!-- style="text-align: right;" -->
-            <form class="d-flex search-form" role="search">
+            <form class="d-flex search-form" role="search" method="post" action="/searching#pricing">
               <input
                 id="searchbar"
                 class="form-control me-2 searchbar"
                 type="search"
                 placeholder="Enter Product Name"
                 aria-label="Search"
+                name="searchValue";
               />
               <button
                 class="btn btn-outline-light submit"
@@ -151,186 +152,51 @@
     <!-- Pricing -->
 
     <section id="pricing">
-      <h2 id="price">Price and Details of Searched Product</h2>
-      <p>
-        Simple and affordable price plans for your product on different Sites
-      </p>
+      <h2 id="price"> <%= searchingtitle %> </h2>
+      <p>  Simple and affordable price plans for your product on different Sites </p>
       <div class="product-container">
         <div class="row">
+
+          <% if (cards.length >= 1) { %>
+
+            <% cards.forEach(function (card, index) { %>
+
           <div class="col-lg-6 product-card">
             <div class="card">
               <div class="img-price">
                 <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
+                  <img id="card-image"src=" <%= card.image %> " class="d-block w-100" alt="Product Images">
                 </div>
                 <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
+                  <div class="items">GeM Price: <%= card.Price %></div>
                   <div class="items">Amazon Price: ₹154,899</div>
                   <div class="items">Flipkart Price: ₹144,999</div>
                 </div>
               </div>
               <div class="card-desc">
                 <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
+                  <%= card.ProductName %>
                 </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
+                <h3 id="pro-brand"> <%= card.Brand %></h3>
+                <div class="seller-type"> Sold by: <%= card.sellerType %></div>
+                <div class="rating"> <%= card.Rating %><i class=" star fa-solid fa-star"></i></div>
+                <div class="consignee-qty"><%= card.minQuantity %></div>
+                <form action="/product<%= index + 1 %>" method="post">
+                  <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
               </form>
-              </div>
-            
-              
+              </div>     
             </div>
           </div>
-          <div class="col-lg-6 product-card">
-            <div class="card">
-              <div class="img-price">
-                <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
-                </div>
-                <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
-                  <div class="items">Amazon Price: ₹154,899</div>
-                  <div class="items">Flipkart Price: ₹144,999</div>
-                </div>
-              </div>
-              <div class="card-desc">
-                <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
-                </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
-              </form>
-              </div>
-            
-              
-            </div>
-          </div>
-          <div class="col-lg-6 product-card">
-            <div class="card">
-              <div class="img-price">
-                <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
-                </div>
-                <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
-                  <div class="items">Amazon Price: ₹154,899</div>
-                  <div class="items">Flipkart Price: ₹144,999</div>
-                </div>
-              </div>
-              <div class="card-desc">
-                <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
-                </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
-              </form>
-              </div>
-            
-              
-            </div>
-          </div>
-          <div class="col-lg-6 product-card">
-            <div class="card">
-              <div class="img-price">
-                <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
-                </div>
-                <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
-                  <div class="items">Amazon Price: ₹154,899</div>
-                  <div class="items">Flipkart Price: ₹144,999</div>
-                </div>
-              </div>
-              <div class="card-desc">
-                <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
-                </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
-              </form>
-              </div>
-            
-              
-            </div>
-          </div>
-          <div class="col-lg-6 product-card">
-            <div class="card">
-              <div class="img-price">
-                <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
-                </div>
-                <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
-                  <div class="items">Amazon Price: ₹154,899</div>
-                  <div class="items">Flipkart Price: ₹144,999</div>
-                </div>
-              </div>
-              <div class="card-desc">
-                <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
-                </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
-              </form>
-              </div>
-            
-              
-            </div>
-          </div>
-          <div class="col-lg-6 product-card">
-            <div class="card">
-              <div class="img-price">
-                <div class="img-div">
-                  <img id="card-image"src="images/one.jpg" class="d-block w-100" alt="Product Images">
-                </div>
-                <div class="pro-price">
-                  <div class="items">GeM Price: ₹144,424</div>
-                  <div class="items">Amazon Price: ₹154,899</div>
-                  <div class="items">Flipkart Price: ₹144,999</div>
-                </div>
-              </div>
-              <div class="card-desc">
-                <h2 id="product-heading">
-                  hp Intel Core i7 15.6 Inch Laptop ( Windows 11 Professional )
-                </h2>
-                <h3 id="pro-brand">(CYNIX GenX iX3030 TOWER DESKTOP)</h3>
-                <div class="seller-type">Sold by: Resellers</div>
-                <div class="rating">4.0 - 4.5 <i class=" star fa-solid fa-star"></i></div>
-                <div class="consignee-qty">Min Qty. per Consignee: 7</div>
-                <div class="qty-avail">Quantity Available: 108</div>
-                <form action="/product1" method="post">
-                <button id="pro-butt" type="submit" class="btn btn-outline-danger">Compare Details</button>
-              </form>
-              </div>
-            
-              
-            </div>
-          </div>
+
+          <% }); %>
+
+      <%  }else if(cards.length == 0){ %>
+         
+        <% if( Flagg == 1){  %>
+              <h2 id="notfound">Product Not found</h2>
+        <%  } %> 
+        <%  } %> 
+
         </div>
       </div>
     </section>
