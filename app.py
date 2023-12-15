@@ -1,11 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
-import json,jsonify
+import json
 from flask import Flask, request
 app = Flask(__name__)
+headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    }
 
-
-# def run_script():
 #     if request.method == 'POST':
 #         value = request.form["d"]
 
@@ -122,7 +123,6 @@ app = Flask(__name__)
 #     else:
 #         return "Method not allowed"
 
-# def extract_title(div, featuredictionary):
 #     titles = div.find_all('h1', class_='like-h3')
 #     for title in titles:
 #         title_text = title.contents[0].strip() if title.contents else ""
@@ -196,7 +196,7 @@ def extract_features(soup, featuredictionary):
 #gemscraper
 def gem_scraper(url):
     
-    response = requests.get(url)
+    response = requests.get(url,headers)
     featuredictionary={}
     itemdetails=""
     if response.status_code == 200:
@@ -230,10 +230,17 @@ def gem_scraper(url):
                 #print(rating[0].text.strip())
                 featuredictionary['rating']=rating[0].text.strip()
                 
-                sellerslink=detail.find_all('a')
-                #print(sellerslink)
-                #print('https://mkp.gem.gov.in/'+sellerslink[0].get('href'))
-                featuredictionary['sellerslink']='https://mkp.gem.gov.in/'+sellerslink[0].get('href')
+                sellerslink=detail.find_all('a',class_="sellers_summary")
+                if sellerslink:
+                    first_seller_link = sellerslink[0].get('href')
+                    if first_seller_link:
+                        featuredictionary['sellerslink'] = 'https://mkp.gem.gov.in' + first_seller_link
+                    else:
+                        # Handle the case where the href is None
+                        featuredictionary['sellerslink'] = 'No seller link available'
+                    # You can set a default value or handle the absence of a link differently
+                else:
+                    featuredictionary['sellerslink'] = 'No seller link available'
                 
             extract_images(div,featuredictionary)
         extract_features(soup,featuredictionary)
@@ -244,7 +251,7 @@ def gem_scraper(url):
 
 #amazonscraper
 def amazon_scraper(url):
-    response = requests.get(url)
+    response = requests.get(url,headers)
     if response.status_code==200:
         soup=BeautifulSoup(response.text,'html.parser')
         #print(soup.prettify())
@@ -267,7 +274,7 @@ def amazon_scraper(url):
         
 #flipkartscraper
 def flipkart_scraper(url):
-    response = requests.get(url)
+    response = requests.get(url,headers)
     if response.status_code==200:
         soup=BeautifulSoup(response.text,'html.parser')
         #print(soup.prettify())
@@ -311,4 +318,3 @@ def run_script():
 
 if __name__ == '__main__':
     app.run(debug=True,port='5500')  # Change the port number (e.g., 5001)
-
