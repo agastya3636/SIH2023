@@ -413,7 +413,11 @@ def run_script():
     if url1:
         data["GEM"] = json.loads(gem_scraper(url1))
     if url2:
+        main
+        data["AMAZON"] = (amazon_scraper(url2))
+  
         data["AMAZON"] = json.loads(amazon_scraper(url2))
+        main
     if url3:
         data["FLIPKART"] = (flipkart_scraper(url3))
     

@@ -56,6 +56,11 @@ hr{
 .product-image{
     width: 50%;
 }
+
+/* .d-block{
+    scale: 0.4;
+} */
+
 .changeicon{
     color: black;
 }
@@ -103,7 +108,7 @@ hr{
     font-weight: bold;
 }
 .detail-info{
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .star{
@@ -116,6 +121,9 @@ hr{
     padding-left: 2%;
     border-radius: 5px;
     color: white;
+    font-weight: bold;
+}
+#sellerlink{
     font-weight: bold;
 }
 
