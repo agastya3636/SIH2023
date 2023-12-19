@@ -264,7 +264,8 @@ from flask import Flask, request
 app = Flask(__name__)
 
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "X-Amzn-Trace-Id": "Root=1-6580a58e-2ae83d645c91e90b57174a15"
 }
 
 def extract_product_details(div, featuredictionary):
@@ -273,27 +274,54 @@ def extract_product_details(div, featuredictionary):
         instock = product.find_all('span', class_="pdp-availability")
         for i in instock:
             stocka = i.find_all('strong', class_="green")
-            featuredictionary['in_stock'] =""+ stocka[0].text.strip().replace('\n', ' ')
+            if stocka:
+                featuredictionary['in_stock'] =""+ stocka[0].text.strip().replace('\n', ' ')
+            else:
+                featuredictionary['in_stock']="N/A"
         minq = product.find_all('span', class_="moq_data")
-        featuredictionary['minimum_quantity'] = ""+minq[0].text.strip()
+        if minq:
+            featuredictionary['minimum_quantity'] = ""+minq[0].text.strip()
+        else:
+            featuredictionary['minimum_quantity']="N/A"
         productid = product.find_all('span', class_="item_sku")
-        featuredictionary['product_id'] = ""+productid[0].text.strip()
+        if productid:
+            featuredictionary['product_id'] = ""+productid[0].text.strip()
+        else:
+            featuredictionary['product_id']="N/A"
         origin = product.find_all('span', class_="origin_country_data")
-        featuredictionary['origin'] = ""+origin[0].text.strip()
+        if origin:
+            featuredictionary['origin'] = ""+origin[0].text.strip()
+        else:
+            featuredictionary['origin']="N/A"
         price = product.find_all('span', class_="m-w")
-        featuredictionary['price'] = ""+price[0].text.strip()
+        if price:
+            featuredictionary['price'] = ""+price[0].text.strip()
+        else:
+            featuredictionary['price']="N/A"
         mit = product.find_all('span', class_="mii_percentage_data")
-        featuredictionary['mit'] = ""+mit[0].text.strip()
+        if mit:
+            featuredictionary['mit'] = ""+mit[0].text.strip()
+        else:
+            featuredictionary['mit']="N/A"
         pricefor = product.find_all('div', class_="pdp-qty-message")
-        featuredictionary['pricefor'] = ""+pricefor[0].text.strip().replace('\n', ' ')
+        if pricefor:
+            featuredictionary['pricefor'] = ""+pricefor[0].text.strip().replace('\n', ' ')
+        else:
+            featuredictionary['pricefor']="N/A"
 
 def extract_seller_details(div, featuredictionary):
     sellerdetails = div.find_all('div', class_='seller-details')
     for detail in sellerdetails:
         sellertype = detail.find_all('span', class_='sold_as_summary')
-        featuredictionary['sellertype'] = sellertype[0].text.strip().replace('\n', ' ')
+        if sellertype:
+            featuredictionary['sellertype'] = sellertype[0].text.strip().replace('\n', ' ')
+        else:
+            featuredictionary['sellertype']="N/A"
         verificationstatus = detail.find_all('div', class_="seller-verified-status")
-        featuredictionary['verificationstatus'] = verificationstatus[0].text.strip()
+        if verificationstatus:
+            featuredictionary['verificationstatus'] = verificationstatus[0].text.strip()
+        else:
+            featuredictionary['verificationstatus'] ="N/A"
         rating = detail.find_all('span', class_="badge")
         if rating:
             featuredictionary['rating'] = rating[0].text.strip()
@@ -322,7 +350,8 @@ def extract_features(soup, featuredictionary):
     row = features[0].find_all('tr')
     for r in row:
         data = r.find_all('td')
-        featuredictionary[data[0].text.strip().replace(' ', '_').replace('&', '_').replace(':', '_').replace('.', '_').replace('±', '_').replace('#', '_').replace('@', '_').replace('-', '_').replace('+', '_').replace('/', '_').replace('(', '_').replace(')', '_')] = data[1].text.strip()
+        if data[0] and data[1]:
+            featuredictionary[data[0].text.strip().replace(' ', '_').replace('&', '_').replace(':', '_').replace('.', '_').replace('±', '_').replace('#', '_').replace('@', '_').replace('-', '_').replace('+', '_').replace('/', '_').replace('(', '_').replace(')', '_')] = data[1].text.strip()
 
 def gem_scraper(url):
     response = requests.get(url, headers=headers)
@@ -338,8 +367,10 @@ def gem_scraper(url):
                 brand = title.find_all('span', class_="brand-name")
                 model = title.find_all('span', class_="model")
                 featuredictionary['name'] = title_text
-                featuredictionary['brand'] = brand[0].text.strip()
-                featuredictionary['model'] = model[0].text.strip()
+                if brand:
+                    featuredictionary['brand'] = brand[0].text.strip()
+                if model:
+                    featuredictionary['model'] = model[0].text.strip()
             extract_product_details(div, featuredictionary)
             extract_seller_details(div, featuredictionary)
             extract_images(div, featuredictionary)
@@ -353,7 +384,7 @@ def gem_scraper(url):
 
 #amazonscraper
 def amazon_scraper(url):
-    response = requests.get(url,headers)
+    response = requests.get(url,headers=headers)
     if response.status_code==200:
         soup=BeautifulSoup(response.text,'html.parser')
         #print(soup.prettify())
@@ -412,14 +443,10 @@ def run_script():
     data={}
     if url1:
         data["GEM"] = json.loads(gem_scraper(url1))
-    if url2:
-        main
-        data["AMAZON"] = (amazon_scraper(url2))
-  
-        data["AMAZON"] = json.loads(amazon_scraper(url2))
-        main
-    if url3:
-        data["FLIPKART"] = (flipkart_scraper(url3))
+    # if url2:
+    #     data["AMAZON"] = (amazon_scraper(url2))
+    # if url3:
+    #     data["FLIPKART"] = (flipkart_scraper(url3))
     
     if data:
         return json.dumps(data)
