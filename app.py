@@ -265,7 +265,7 @@ app = Flask(__name__)
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    "X-Amzn-Trace-Id": "Root=1-6580a58e-2ae83d645c91e90b57174a15"
+   
 }
 
 def extract_product_details(div, featuredictionary):
