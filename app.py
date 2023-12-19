@@ -383,25 +383,28 @@ def gem_scraper(url):
 
 
 #amazonscraper
-def amazon_scraper(url):
+def ebay_scraper(url):
     response = requests.get(url,headers=headers)
-    if response.status_code==200:
-        soup=BeautifulSoup(response.text,'html.parser')
-        #print(soup.prettify())
-        d={}
-        title= soup.body.find_all('span', id='productTitle')
-        d['title']=(title[0].text.strip())
-        price = soup.body.find_all('span', class_='a-price')
-        d['price']=(price[0].find('span',class_='a-offscreen').text.strip())
-        div=soup.body.find_all('div',id='prodDetails')
-        dep=div[0].find_all('tr')
-
-        for i in dep:
-            d[i.find('th').text.strip().replace(' ','_').replace('&','_').replace(':','_').replace('.','_').replace('±','_').replace('#','_').replace('@','_').replace('-','_').replace('+','_').replace('/','_').replace('(','_').replace(')','_')]=i.find('td').text.strip().replace('\n',' ')
-        #print(d)
-        json_data = json.dumps(d,indent=2)
-        return json_data
+    if response.status_code == 200:
+        dic={}
+        soup = BeautifulSoup(response.text, 'html.parser')
+        title=soup.body.find_all(class_="vim x-item-title")
+        dic["title"]=title[0].text.strip()
         
+        price=soup.body.find_all(class_="x-price-primary")
+        dic["price"]=price[0].text.strip()
+        deps=soup.body.find_all('div',class_="vim x-about-this-item")
+        d=deps[0].find_all('div',class_="ux-layout-section-evo__col")
+        
+        for dep in range(2,len(d)):
+            #d=dep.find
+            v=d[dep].find_all('div',class_="ux-labels-values__values")
+            h=d[dep].find_all('div',class_="ux-labels-values__labels")
+            # h=h[0].text().strip().replace(" ","_")
+            # v=v[0].text.strip()
+            dic[h[0].text.strip().replace(" ","_")]=v[0].text.strip()
+            json_data = json.dumps(dic)
+        return(json_data)
     else:
         print("Failed to fetch the webpage")
         
@@ -443,10 +446,10 @@ def run_script():
     data={}
     if url1:
         data["GEM"] = json.loads(gem_scraper(url1))
-    # if url2:
-    #     data["AMAZON"] = (amazon_scraper(url2))
-    # if url3:
-    #     data["FLIPKART"] = (flipkart_scraper(url3))
+    if url2:
+        data["EBAY"] = (ebay_scraper(url2))
+    if url3:
+        data["FLIPKART"] = (flipkart_scraper(url3))
     
     if data:
         return json.dumps(data)
