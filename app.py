@@ -382,7 +382,7 @@ def gem_scraper(url):
 
 
 
-#amazonscraper
+#ebayscraper
 def ebay_scraper(url):
     response = requests.get(url,headers=headers)
     if response.status_code == 200:
