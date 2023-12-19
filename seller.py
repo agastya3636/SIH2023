@@ -9,7 +9,9 @@ app = Flask(__name__)
 @app.route('/seller', methods=['POST'])
 def run_script():
     try:
-        url = "https://mkp.gem.gov.in/desktop-computers/cynix-intel-core-i5-10400-8-gb-500/p-5116877-79231568763-cat/all_sellers.html"
+        data = request.get_json()  
+        ls = data['array'] 
+        url = ls[0]
         response = requests.get(url)
         
         if response.status_code == 200:
